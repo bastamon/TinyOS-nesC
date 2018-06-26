@@ -1,5 +1,5 @@
-//////////////////TinyOS随机数组建接口
-
+## TinyOS随机数组建接口
+```
 interface Random
 {
     async command uint32_t rand32();//32位伪随机数
@@ -17,12 +17,12 @@ module CC2530RandomC
 }
 
 /////////////////////////////////////////////////////////////////////
+```
 
 
 
-
-
-////Flash组建接口
+## Flash组建接口
+```
 interface HalFlash
 {
     command error_t read(uint8_t *buf,uint32_t address,uint16_t length);
@@ -36,11 +36,12 @@ module HalFlashP
     uses interface Dma;
 }
 //////////////////////////////////////////////////////////////////////////
+```
 
 
 
-
-
+## DMA组建接口
+```
 ///////////////DMA组建接口///////////////////
 interface Dma
 {
@@ -62,7 +63,10 @@ module DmaP
     }
 }
 //////////////////////////////////////////////////////////////
+```
 
+## WDT看门组件接口
+```
 //////////WDT看门组件接口////////////////////////////////
 interface WatchDog
 {
@@ -77,7 +81,10 @@ module WatchDogP
 }
 
 ////////////////////////////////////////////////////////////////////
+```
 
+# 定时器Timer接口定义
+```
 /////////定时器Timer接口定义
 interface Timer<precision_tag>
 {
@@ -99,7 +106,11 @@ configuration TimerMillip
     provides interface Timer<TMilli> as TimerMilli[uint8_t id];
 }
 //////////////////////////////////////////////////////
+```
 
+
+## ADC接口定义
+```
 ///////////ADC接口定义
 interface AdcControl
 {
@@ -117,7 +128,10 @@ module AdcP
     }
 }
 ////////////////////////////////////////////
+```
 
+## 串口通信接口
+```
 //////////////////串口通信接口
 interface UartByte
 {
@@ -152,8 +166,10 @@ module HplCC2530Uart0P
         interface UartByte;
     }
 }
+```
+## 第八章
 
-/////////////第八章
+```
 ////////////////message_t消息结构体
 typedef nx_struct message_t
 {
@@ -205,8 +221,10 @@ typedef nx_struct CC2530_forget_t
 {
     nxle_uint8_t i;
 }CC2530_footer_t;
+```
 
-
+## 基本通信接口
+```
 /////////////////基本通信接口
 interface Packet
 {
@@ -230,7 +248,10 @@ interface Receive
 {
     event message_t* receive(message_t msg,void* payload, uint8_t len);
 }
+```
 
+## 主动通信接口AM实现无线通信的多渠道访问机制
+```
 ////////////////主动通信接口AM实现无线通信的多渠道访问机制
 interface AMPacket
 {
@@ -279,7 +300,10 @@ implementation
     Packet=AM;
     AMPacket=AM;
 }
+```
 
+## CC2530接口与模块
+```
 ///////////////CC2530接口与模块
 interface CC2530Packet
 {
@@ -337,3 +361,4 @@ interface CC2530RFControl
 
 
  ///////////////////
+ ```
