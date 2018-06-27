@@ -1,4 +1,4 @@
-# TinyOS-nesC
+# TinyOS-nesC速成
 
 ## TinyOS随机数组建接口
 ```
